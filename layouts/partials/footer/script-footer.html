@@ -1,14 +1,19 @@
-{{ partial "footer/esbuild" (dict "src" "js/bootstrap.js" "load" "async" "transpile" false) -}}
-{{ partial "footer/esbuild" (dict "src" "js/app.js" "targetPath" "main.js" "load" "async" "transpile" false) -}}
+<section id="blz-js">
+  {{ partial "footer/esbuild" (dict "src" "js/bootstrap.js" "load" "async" "transpile" false) -}}
+  {{ partial "footer/esbuild" (dict "src" "js/app.js" "targetPath" "main.js" "load" "async" "transpile" false) -}}
 
-{{/* EXAMPLE - only load script for production
-{{ if eq (hugo.Environment) "production" -}}
-  {{ partial "footer/esbuild" (dict "src" "js/instantpage.js" "load" "async" "transpile" false) -}}
-{{ end -}}
-*/}}
+  {{ if eq (hugo.Environment) "production" -}}
+    <script async src="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.js"></script>
+    <div id="snipcart" data-config-modal-style="side" data-api-key="MDM0NjFkNDQtNDE2Yi00YjE4LWE0OTYtMzJiZjhiNjkxMGQ0NjM3NjMxMjc3MDg5NDMzOTg0" hidden></div>
+  {{ end -}}
 
-{{/* EXAMPLE - only load script for a page type e.g. contact or gallery
-{{ if eq .Type "gallery" }}
-  {{ partial "footer/esbuild" (dict "src" "js/gallery.js" "load" "async" "transpile" false) -}}
-{{ end }}
-*/}}
+  {{/* EXAMPLE - only load script for a page type e.g. contact or gallery
+  {{ if eq .Type "gallery" }}
+    {{ partial "footer/esbuild" (dict "src" "js/gallery.js" "load" "async" "transpile" false) -}}
+  {{ end }}
+  */}}
+
+  <noscript>
+    <p>For the best browsing experience, please enable JavaScript.</p>  
+  </noscript>
+</section>

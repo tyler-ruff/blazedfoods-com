@@ -1,2 +1,6 @@
 {{ partial "head/libsass" "scss/app.scss"}}
 <noscript><style>img.lazyload { display: none; }</style></noscript>
+
+{{ if eq (hugo.Environment) "production" -}}
+    <link rel="stylesheet" href="https://cdn.snipcart.com/themes/v3.3.3/default/snipcart.css" />
+{{ end -}}
